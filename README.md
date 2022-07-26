@@ -1,2 +1,2 @@
-# C-Study
+# CPPStudy
 C++

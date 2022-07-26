@@ -1,0 +1,50 @@
+Position operator+(const Position& arg)
+	{
+		Position pos;
+
+		pos._x = _x + arg._x;
+		pos._y = _y + arg._y;
+		return pos;
+	}
+Position operator+(int arg)
+	{
+		Position pos;
+
+		pos._x = _x + arg;
+		pos._y = _y + arg;
+		return pos;
+	}
+
+bool operator==(const Position& arg)
+	{
+		return _x == arg._x && _y == arg._y;
+	}
+
+대충 이런식으로 함
+인자가 하나인 이유는
+멤버 함수로 만들 경우
+좌측에 항상 해당 클래스에 대한 인자가 숨겨져 있다는걸로 간주
+
+멤버 함수로만 만들 수 있는 연산자: 대입 연산자
+why? 우->좌로 대입인데 이걸 역으로 바꿔버리는 위험한 일이 일어날 수 있음
+
+
+void operator+(int arg)
+{
+  _x = arg;
+  _y = arg;
+}
+이런식으로 하는데 리턴값이 void라서
+
+pos5 = (pos3 = 5);
+이런식으로 함수처럼 쓸때 오류가남
+그래서 보통 자기자신의 참조를 리턴해주고
+Position& operator=(int arg)
+	{
+		_x = arg;
+		_y = arg;
+		
+		//Position* this라는게 숨겨져있음 자동으로
+		return *this;
+	}
+이런식으로 구성함

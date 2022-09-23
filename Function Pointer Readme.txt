@@ -12,7 +12,7 @@ typedef int(FUNC_TYPE)(int a, int b); a, b생략 가능
 
 // 1) 포인터	  *
 // 2) 변수이름	  fn
-// 3) 데이터 타입 함수 (int(int a, int b))모양
+// 3) 데이터 타입 함수 int(int a, int b)모양
 FUNC_TYPE* fn;
 의 구조가 완성됨
 

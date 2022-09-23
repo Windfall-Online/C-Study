@@ -6,7 +6,11 @@ using namespace std;
 
 
 
-
+template <typename T>
+T Adder(T n1, T n2)
+{
+	return n1 + n2;
+}
 
 int main()
 {

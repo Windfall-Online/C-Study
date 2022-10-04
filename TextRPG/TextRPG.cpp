@@ -174,7 +174,6 @@ void CreateRandomMonster()
 		monsterInfo->hp = 15;
 		monsterInfo->attack = 5;
 		monsterInfo->defence = 0;
-
 		break;
 	case MT_Orc:
 		cout << "오크 생성중...! (HP: 40 / ATT: 10 / DEF : 3)" << endl;
@@ -214,9 +213,9 @@ void EnterBattle()
 			return;
 		}
 		damage = monsterInfo->attack - playerInfo->defence;
-		if (playerInfo->defence == 0)
+		if (damage < 0 )
 		{
-			playerInfo->defence = 0;
+			damage = 0;
 		}
 
 		// 반격

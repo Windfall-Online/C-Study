@@ -1,10 +1,6 @@
 #include <iostream>
 using namespace std;
 
-
-
-
-
 enum PlayerType
 {
 
@@ -30,10 +26,10 @@ struct ObjectInfo
 
 };
 
-ObjectInfo* playerInfo = (ObjectInfo*)malloc(sizeof(ObjectInfo));
+ObjectInfo *playerInfo = (ObjectInfo *)malloc(sizeof(ObjectInfo));
 ObjectInfo* monsterInfo = (ObjectInfo*)malloc(sizeof(ObjectInfo));
 
-//int playerType; // ¡˜æ˜ º±≈√ ±‚ªÁ? ±√ºˆ? π˝ªÁ?
+//int playerType; // ÏßÅÏóÖ ÏÑ†ÌÉù Í∏∞ÏÇ¨? Í∂ÅÏàò? Î≤ïÏÇ¨?
 //int hp;
 //int attack;
 //int defence;
@@ -49,7 +45,6 @@ void EnterField();
 void CreateRandomMonster();
 void EnterBattle();
 
-
 int main()
 {
 	EnterLobby();
@@ -61,14 +56,14 @@ void EnterLobby()
 	while (true)
 	{
 		cout << "-------------------" << endl;
-		cout << "∑Œ∫Òø° ¿‘¿Â«ﬂΩ¿¥œ¥Ÿ!!" << endl;
+		cout << "Î°úÎπÑÏóê ÏûÖÏû•ÌñàÏäµÎãàÎã§!!" << endl;
 		cout << "-------------------" << endl;
 
-		// «√∑π¿ÃæÓ ¡˜æ˜	º±≈√
+		// ÌîåÎ†àÏù¥Ïñ¥ ÏßÅÏóÖ	ÏÑ†ÌÉù
 		SelectPlayer();
 
 		cout << "-----------------------------" << endl;
-		cout << "(1) « µÂ ¿‘¿Â (2) ∞‘¿” ¡æ∑·" << endl;
+		cout << "(1) ÌïÑÎìú ÏûÖÏû• (2) Í≤åÏûÑ Ï¢ÖÎ£å" << endl;
 		cout << "-----------------------------" << endl;
 
 		
@@ -90,8 +85,8 @@ void SelectPlayer()
 {
 	while (true) {
 		cout << "-------------------" << endl;
-		cout << "¡˜æ˜¿ª ∞Ò∂Û¡÷ººø‰!!!" << endl;
-		cout << "(1) ±‚ªÁ (2) ±√ºˆ (3) π˝ªÁ" << endl;
+		cout << "ÏßÅÏóÖÏùÑ Í≥®ÎùºÏ£ºÏÑ∏Ïöî!!!" << endl;
+		cout << "(1) Í∏∞ÏÇ¨ (2) Í∂ÅÏàò (3) Î≤ïÏÇ¨" << endl;
 		cout << "-------------------" << endl;
 		cout << ">";
 
@@ -99,7 +94,7 @@ void SelectPlayer()
 
 		if (playerInfo->type == PT_Knight)
 		{
-			cout << "±‚ªÁ ª˝º∫¡ﬂ" << endl;
+			cout << "Í∏∞ÏÇ¨ ÏÉùÏÑ±Ï§ë" << endl;
 			playerInfo->hp = 150;
 			playerInfo->attack = 10;
 			playerInfo->defence = 5;
@@ -107,7 +102,7 @@ void SelectPlayer()
 		}
 		else if (playerInfo->type == PT_Archer)
 		{
-			cout << "±√ºˆ ª˝º∫¡ﬂ" << endl;
+			cout << "Í∂ÅÏàò ÏÉùÏÑ±Ï§ë" << endl;
 			playerInfo->hp = 100;
 			playerInfo->attack = 15;
 			playerInfo->defence = 3;
@@ -115,7 +110,7 @@ void SelectPlayer()
 		}
 		else if (playerInfo->type == PT_Mage)
 		{
-			cout << "π˝ªÁ ª˝º∫¡ﬂ" << endl;
+			cout << "Î≤ïÏÇ¨ ÏÉùÏÑ±Ï§ë" << endl;
 			playerInfo->hp = 80;
 			playerInfo->attack = 25;
 			playerInfo->defence = 0;
@@ -123,7 +118,7 @@ void SelectPlayer()
 		}
 		else
 		{
-			cout << "¡˜æ˜ º±≈√¿Ã ¿ﬂ∏¯µ«æ˙Ω¿¥œ¥Ÿ ¥ŸΩ√ º±≈√«ÿ¡÷ººø‰!" << endl;
+			cout << "ÏßÅÏóÖ ÏÑ†ÌÉùÏù¥ ÏûòÎ™ªÎêòÏóàÏäµÎãàÎã§ Îã§Ïãú ÏÑ†ÌÉùÌï¥Ï£ºÏÑ∏Ïöî!" << endl;
 		}
 	}
 
@@ -135,14 +130,14 @@ void EnterField()
 	{
 
 		cout << "-------------------" << endl;
-		cout << "« µÂø° ¿‘¿Â«ﬂΩ¿¥œ¥Ÿ!!" << endl;
+		cout << "ÌïÑÎìúÏóê ÏûÖÏû•ÌñàÏäµÎãàÎã§!!" << endl;
 		cout << "-------------------" << endl;
 
 		cout << "[PLAYER] HP : " << playerInfo->hp << " / ATT : " << playerInfo->attack << "/ DEF : " << playerInfo->defence << endl;
 		CreateRandomMonster();
 
 		cout << "-------------------" << endl;
-		cout << "(1) ¿¸≈ı (2) µµ¡÷" << endl;
+		cout << "(1) Ï†ÑÌà¨ (2) ÎèÑÏ£º" << endl;
 		cout << "-------------------" << endl;
 
 		int input;
@@ -164,25 +159,25 @@ void EnterField()
 
 void CreateRandomMonster()
 {
-	// 1~3ªÁ¿Ã¿« º˝¿⁄∏¶ «œ≥™ ∑£¥˝¿∏∑Œ √‚∑¬
+	// 1~3ÏÇ¨Ïù¥Ïùò Ïà´ÏûêÎ•º ÌïòÎÇò ÎûúÎç§ÏúºÎ°ú Ï∂úÎ†•
 	monsterInfo->type = (rand() % 3) + 1; // 0, 1, 2
 
 	switch (monsterInfo->type)
 	{
 	case MT_Slime:
-		cout << "ΩΩ∂Û¿” ª˝º∫¡ﬂ...! (HP: 15 / ATT: 5 / DEF : 0)" << endl;
+		cout << "Ïä¨ÎùºÏûÑ ÏÉùÏÑ±Ï§ë...! (HP: 15 / ATT: 5 / DEF : 0)" << endl;
 		monsterInfo->hp = 15;
 		monsterInfo->attack = 5;
 		monsterInfo->defence = 0;
 		break;
 	case MT_Orc:
-		cout << "ø¿≈© ª˝º∫¡ﬂ...! (HP: 40 / ATT: 10 / DEF : 3)" << endl;
+		cout << "Ïò§ÌÅ¨ ÏÉùÏÑ±Ï§ë...! (HP: 40 / ATT: 10 / DEF : 3)" << endl;
 		monsterInfo->hp = 40;
 		monsterInfo->attack = 10;
 		monsterInfo->defence = 3;
 		break;
 	case MT_Skeleton:
-		cout << "«ÿ∞Ò∫¥ªÁ ª˝º∫¡ﬂ...! (HP: 80 / ATT: 15 / DEF : 5)" << endl;
+		cout << "Ìï¥Í≥®Î≥ëÏÇ¨ ÏÉùÏÑ±Ï§ë...! (HP: 80 / ATT: 15 / DEF : 5)" << endl;
 		monsterInfo->hp = 80;
 		monsterInfo->attack = 15;
 		monsterInfo->defence = 5;
@@ -200,16 +195,16 @@ void EnterBattle()
 			damage = 0;
 		}
 
-		// º±ªß
+		// ÏÑ†Îπµ
 		monsterInfo->hp -= damage;
 		if (monsterInfo->hp < 0)
 		{
 			monsterInfo->hp = 0;
 		}
-		cout << "∏ÛΩ∫≈Õ¿« ≥≤¿∫ √º∑¬ : " << monsterInfo->hp << endl;
+		cout << "Î™¨Ïä§ÌÑ∞Ïùò ÎÇ®ÏùÄ Ï≤¥Î†• : " << monsterInfo->hp << endl;
 		if (monsterInfo->hp == 0)
 		{
-			cout << "∏ÛΩ∫≈Õ∏¶ √≥ƒ°«ﬂΩ¿¥œ¥Ÿ!" << endl;
+			cout << "Î™¨Ïä§ÌÑ∞Î•º Ï≤òÏπòÌñàÏäµÎãàÎã§!" << endl;
 			return;
 		}
 		damage = monsterInfo->attack - playerInfo->defence;
@@ -218,16 +213,16 @@ void EnterBattle()
 			damage = 0;
 		}
 
-		// π›∞›
+		// Î∞òÍ≤©
 		playerInfo->hp -= damage;
 		if (playerInfo->hp < 0)
 		{
 			playerInfo->hp = 0;
 		}
-		cout << "«√∑π¿ÃæÓ ≥≤¿∫ √º∑¬ : " << playerInfo->hp << endl;
+		cout << "ÌîåÎ†àÏù¥Ïñ¥ ÎÇ®ÏùÄ Ï≤¥Î†• : " << playerInfo->hp << endl;
 		if (playerInfo->hp == 0)
 		{
-			cout << "¥ÁΩ≈¿∫ ªÁ∏¡«ﬂΩ¿¥œ¥Ÿ...GAME OVER" << endl;
+			cout << "ÎãπÏã†ÏùÄ ÏÇ¨ÎßùÌñàÏäµÎãàÎã§...GAME OVER" << endl;
 			return;
 		}
 
